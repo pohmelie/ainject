@@ -1,4 +1,5 @@
 __pycach__
 .coverage
 .python-version
+.cache
 *.pyc
