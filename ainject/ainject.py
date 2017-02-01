@@ -43,7 +43,9 @@ class Injector:
 
     async def _evaluate(self, function, *args, **kwargs):
 
-        if inspect.iscoroutinefunction(function):
+        if inspect.iscoroutinefunction(function) or \
+                inspect.isclass(function) and \
+                inspect.iscoroutinefunction(function.__new__):
 
             return await function(*args, **kwargs)
 

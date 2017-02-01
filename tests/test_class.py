@@ -66,3 +66,24 @@ async def test_async_init(binded_injector):
 
     a = await A()
     assert a.value is (await binded_injector.instance("singleton_value"))
+
+
+@pytest.mark.asyncio
+async def test_function_to_class_to_function_injection(binded_injector):
+
+    async def foo():
+
+        return []
+
+    @binded_injector.inject(x="foo")
+    class A:
+        def __init__(self, x):
+            self.x = x
+
+    @binded_injector.inject(a=A)
+    def bar(a):
+        return a
+
+    binded_injector.bind(foo, name="foo")
+    binded_injector.bind(A)
+    assert (await bar()).x == []
