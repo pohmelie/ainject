@@ -1,0 +1,4 @@
+__pycach__
+.coverage
+.python-version
+*.pyc
