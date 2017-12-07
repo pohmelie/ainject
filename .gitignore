@@ -1,5 +1,4 @@
-__pycach__
-.coverage
-.python-version
-.cache
+.*
+!.git*
+__pycache__
 *.pyc
