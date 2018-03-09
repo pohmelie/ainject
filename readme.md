@@ -12,7 +12,7 @@ Simple asynchronous dependency injector for python.
 
 ## Requirements
 * Python 3.5+
-* setuptools >= 30.3.0
+* setuptools >= 30.3.0 (installation only)
 
 ## Usage
 All you have to do is `bind` some factories with some names and
